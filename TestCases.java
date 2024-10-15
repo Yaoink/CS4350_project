@@ -25,9 +25,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
     - if user can logout
 */
 
-public class TestCases {
-    public void sample
-    {
+@SpringBootTest
 
+public class TestCases {
+    @test
+    public void accountCreation(database accounts, String email, String password) {
+        // checks if account was successfully created
+        // query database for specific account and select * from accounts where
+        // accounts=email
+        // then assert that it returns one row
+        if (email == accounts.email && password == accounts.password)
+            assertTrue(accounts);
     }
+
 }
