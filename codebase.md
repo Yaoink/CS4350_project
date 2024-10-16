@@ -78,6 +78,11 @@
             <artifactId>assertj-core</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- JpaRepository -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -419,6 +424,9 @@ public class EmailService {
 ```java
 package edu.gsu.cs4350.Repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import edu.gsu.cs4350.Models.Website;
+
 public interface WebsiteRepository extends JpaRepository<Website, String> {
     Website findByUrl(String url);
 }
@@ -429,6 +437,10 @@ public interface WebsiteRepository extends JpaRepository<Website, String> {
 ```java
 package edu.gsu.cs4350.Repositories;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import edu.gsu.cs4350.Models.User;
+
 public interface UserRepository extends JpaRepository<User, String> {
     User findByEmail(String email);
 }
@@ -438,6 +450,9 @@ public interface UserRepository extends JpaRepository<User, String> {
 
 ```java
 package edu.gsu.cs4350.Repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import edu.gsu.cs4350.Models.Password;
 
 public interface PasswordRepository extends JpaRepository<Password, Integer> {
     List<Password> findByEmail(String email);
@@ -455,7 +470,30 @@ public class Website {
     private String websiteId;
     private String websiteName;
     private String url;
-    // Getters and setters
+
+    public void setWebsiteId(String websiteId) {
+        this.websiteId = websiteId;
+    }
+
+    public String getWebsiteId() {
+        return websiteId;
+    }
+
+    public void setWebsiteName(String websiteName) {
+        this.websiteName = websiteName;
+    }
+
+    public String getWebsiteName() {
+        return websiteName;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
 }
 
 ```
@@ -465,12 +503,45 @@ public class Website {
 ```java
 package edu.gsu.cs4350.Models;
 
+import java.time.LocalDateTime;
+
 public class User {
     private String email;
     private String encryptedAccountPassword;
     private LocalDateTime timeCreated;
     private LocalDateTime lastLogin;
-    // Getters and setters
+
+    public void setemail(String email) {
+        this.email = email;
+    }
+
+    public String getemail() {
+        return email;
+    }
+
+    public void setencryptedAccountPassword(String encryptedAccountPassword) {
+        this.encryptedAccountPassword = encryptedAccountPassword;
+    }
+
+    public String getencryptedAccountPassword() {
+        return encryptedAccountPassword;
+    }
+
+    public void settimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public LocalDateTime gettimeCreated() {
+        return timeCreated;
+    }
+
+    public void setlastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
+    }
+
+    public LocalDateTime getlastLogin() {
+        return lastLogin;
+    }
 }
 ```
 
@@ -478,6 +549,8 @@ public class User {
 
 ```java
 package edu.gsu.cs4350.Models;
+
+import java.time.LocalDateTime;
 
 public class Password {
     private int passwordId;
@@ -487,7 +560,62 @@ public class Password {
     private LocalDateTime timeCreated;
     private LocalDateTime lastModified;
     private String username;
-    // Getters and setters
+
+    public void setpasswordId(int passwordId) {
+        this.passwordId = passwordId;
+    }
+
+    public int getpasswordId() {
+        return passwordId;
+    }
+
+    public void setemail(String email) {
+        this.email = email;
+    }
+
+    public String getemail() {
+        return email;
+    }
+
+    public void setwebsiteId(String websiteId) {
+        this.websiteId = websiteId;
+    }
+
+    public String getwebsiteId() {
+        return websiteId;
+    }
+
+    public void setencryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
+    }
+
+    public String getencryptedPassword() {
+        return encryptedPassword;
+    }
+
+    public void settimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public LocalDateTime gettimeCreated() {
+        return timeCreated;
+    }
+
+    public void setlastModified(LocalDateTime lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    public LocalDateTime getlastModified() {
+        return lastModified;
+    }
+
+    public void setusername(String username) {
+        this.username = username;
+    }
+
+    public String getusername() {
+        return username;
+    }
 }
 
 ```
