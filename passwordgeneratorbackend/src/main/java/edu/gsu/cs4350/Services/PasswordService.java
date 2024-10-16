@@ -1,6 +1,9 @@
 package edu.gsu.cs4350.Services;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.gsu.cs4350.Models.Password;
@@ -16,7 +19,11 @@ public class PasswordService {
 
     public Password savePassword(String email, String websiteUrl, String username, String password);
 
-    public List<Password> getPasswordsForUser(String email);
+    public List<Password> getPasswordsForUser(String email) {
+        // This calls the findByEmail method from the PasswordRepository
+        // It will return an empty list based on our current implementation
+        return passwordRepository.findByEmail(email);
+    }
 
     public Password updatePassword(int passwordId, String newPassword);
 
