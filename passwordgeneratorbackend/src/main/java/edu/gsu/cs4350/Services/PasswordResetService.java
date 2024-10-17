@@ -11,9 +11,16 @@ public class PasswordResetService {
     @Autowired
     private EmailService emailService;
 
-    public void initiatePasswordReset(String email);
+    public void initiatePasswordReset(String email) {
+        System.out.println("Password reset initiated for: " + email);
+    }
 
-    public boolean validateResetToken(String token);
+    public boolean validateResetToken(String token) {
+        // Implementation omitted
+        return false;
+    }
 
-    public void resetPassword(String token, String newPassword);
+    public void resetPassword(String token, String newPassword) {
+        // Implementation omitted
+    }
 }
