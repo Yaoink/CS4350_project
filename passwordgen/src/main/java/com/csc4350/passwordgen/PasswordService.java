@@ -1,6 +1,6 @@
 package com.csc4350.passwordgen;
 
-import com.csc4350.passwordgen.Passwords;
+import com.csc4350.passwordgen.Password;
 import com.csc4350.passwordgen.PasswordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

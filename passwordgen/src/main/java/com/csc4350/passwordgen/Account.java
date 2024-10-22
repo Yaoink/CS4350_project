@@ -1,6 +1,6 @@
 package com.csc4350.passwordgen;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "ACCOUNTS")

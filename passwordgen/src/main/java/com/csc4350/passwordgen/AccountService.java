@@ -1,4 +1,4 @@
-package com.csc4350.passwordgen;m
+package com.csc4350.passwordgen;
 
 import java.util.Optional;
 
